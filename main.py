@@ -1,6 +1,7 @@
 #codeByMatt
 from PIL import Image
-import os, time, random, re
+import os
+import re
 
 os.chdir(os.path.realpath(os.path.dirname(__file__)))
 
@@ -79,7 +80,6 @@ for item in temp:
     image = image.resize(Logo.size)
     edit = Image.alpha_composite(image, Logo)
     edit.save(f"{exportDirectory}/{item}")
-    # remove from temp
     path = os.path.join(tempDirectory, item)
     os.remove(path)
 
@@ -88,5 +88,4 @@ print(f"\nAll files succesfully edited\n")
 answ = input("Press any key to exit...\n")
 
 if answ:
-    print("Bye...")
     quit()
