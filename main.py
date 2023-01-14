@@ -4,38 +4,23 @@ import os, time, random, re
 
 os.chdir(os.path.realpath(os.path.dirname(__file__)))
 
-asciiLogo = open(r"./src/ascii_logo.txt", "r")
-Lines = asciiLogo.readlines()
-count = 0
-
-for line in Lines:
-    count += 1
-    print("{}".format(line.strip()))
-    time.sleep(random.uniform(0.01,0.02))
-
 importDirectory = r"./input"
 print(f"\nSet up input folder to: {importDirectory}")
-time.sleep(0.01)
 
 tempDirectory = r"./temp"
 print(f"Set up temp folder to: {tempDirectory}")
-time.sleep(0.01)
 
 exportDirectory = r"./output"
 print(f"Set up export folder to: {exportDirectory}")
-time.sleep(0.01)
 
 logoPath = r"./src/logo_w.png"
 print(f"Logo overlay set to file: {logoPath}")
-time.sleep(0.01)
 
 Logo = Image.open(logoPath)
 print("Logo succesfully loaded")
-time.sleep(0.01)
 
 filesToWork = os.listdir(importDirectory)
 print(f"Succesfully loaded images from folder {importDirectory}")
-time.sleep(0.01)
 
 print("Sorting list of files...")
 
@@ -50,10 +35,8 @@ print("List sorted!")
 
 imageCount = len(temp)
 print(f"Image count: {imageCount}")
-time.sleep(0.01)
 
 print(f"\nStarting converting to PNG RGBA...\n")
-time.sleep(0.01)
 
 startName = input("Zadaj cislo fotky alebo 'Enter': ")
 print("\n")
@@ -78,11 +61,9 @@ elif len(startName) == 0:
         image.save(f"{tempDirectory}/{item[0]}.png")
 
 print(f"\nStarting procesing...")
-time.sleep(0.01)
 
 filesFromTemp = os.listdir(tempDirectory)
 print(f"\nSuccesfully loaded images from folder {tempDirectory}\n")
-time.sleep(0.01)
 
 temp = list()
 for item in filesFromTemp:
@@ -108,5 +89,4 @@ answ = input("Press any key to exit...\n")
 
 if answ:
     print("Bye...")
-    time.sleep(2)
     quit()
